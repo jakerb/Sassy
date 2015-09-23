@@ -6,9 +6,9 @@ class SassyCommand(sublime_plugin.TextCommand):
             encoded = {'sass': page}
             send = urllib.urlencode(encoded)
             url = 'http://jakebown.azurewebsites.net/compiler/?'
-            url += send
+            #url += send
             print(url)
-            response = urllib2.urlopen(url)
+            response = urllib2.urlopen(url, send)
             page = response.read()
             length = self.view.size()
             reg = sublime.Region(0, length)
@@ -17,3 +17,5 @@ class SassyCommand(sublime_plugin.TextCommand):
         except Exception as (e):
             response = e;
             print("********* Error *********")
+            print(response)
+            print("********* Exit *********")
