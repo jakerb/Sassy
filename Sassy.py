@@ -5,7 +5,7 @@ class SassyCommand(sublime_plugin.TextCommand):
             page = self.view.substr(sublime.Region(0, self.view.size()))
             encoded = {'sass': page}
             send = urllib.urlencode(encoded)
-            url = 'http:/x/s/jakebown/sassy/?'
+            url = 'http://[URL]/?'
             #url += send
             print(url)
             response = urllib2.urlopen(url, send)
